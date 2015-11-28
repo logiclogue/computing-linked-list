@@ -2,7 +2,7 @@ var Route = new (function ()
 {
 	var self = this;
 
-	var currentLocation = ['#', 'linked-list'];
+	var currentLocation = [];
 	var routes = {
 		'linked-list': function () {
 			List.draw();
@@ -10,13 +10,18 @@ var Route = new (function ()
 		'stack': function () {
 			Stack.draw();
 		},
-		'queue': function () {
-			Queue.draw();
+		'shuffle-queue': function () {
+			ShuffleQueue.draw();
+		},
+		'circular-queue': function () {
+			CircularQueue.draw();
 		}
 	};
 
 
 	function eventHashChange() {
+		El.hideAll();
+
 		try {
 			currentLocation = window.location.hash.split('/');
 			routes[currentLocation[1].toLowerCase()]();
@@ -27,7 +32,7 @@ var Route = new (function ()
 
 
 	self.notFound = function () {
-		Table.clear();
+		window.location.hash = '#/linked-list';
 	};
 
 	self.set = function () {
@@ -35,6 +40,7 @@ var Route = new (function ()
 	};
 
 	self.init = function () {
+		eventHashChange();
 		window.addEventListener('hashchange', eventHashChange);
 	};
 });

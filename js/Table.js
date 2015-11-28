@@ -3,8 +3,8 @@ var Table = {};
 
 (function (static_, public_) {
 
-	static_.table = document.getElementById('table-list');
-	static_.tableBody = document.getElementById('table-list-body');
+	static_.table = El.get('table-list');
+	static_.tableBody = El.get('table-list-body');
 	static_.rows = [];
 	static_.objRef;
 
@@ -28,26 +28,29 @@ var Table = {};
 
 	static_.removeValue = function (obj) {
 		static_.tableBody.removeChild(static_.rows[obj.index]);
-		static_.objRef.lists[obj.index] = null;
+		static_.objRef.removeValue(obj.index);
 	};
 
 	static_.insertValue = function (obj, isButton) {
 		static_.rows[obj.index] = document.createElement('tr');
 
 		var row = static_.rows[obj.index];
+		var removeButton = document.createElement('button');
+
+		removeButton.appendChild(document.createTextNode('Remove'));
 
 		row.insertCell(0).innerHTML = obj.index;
 		row.insertCell(1).innerHTML = obj.value;
 		row.insertCell(2).innerHTML = obj.pointer;
 
 		if (isButton) {
-			row.insertCell(3).innerHTML = '<button id="button-remove-' + obj.index + '">Remove</button>';
+			row.insertCell(3).appendChild(removeButton);
 		}
 
 		static_.tableBody.appendChild(row);
 
 		if (isButton) {
-			document.getElementById('button-remove-' + obj.index).addEventListener('click', function () {
+			removeButton.addEventListener('click', function () {
 				static_.removeValue(obj);
 				static_.objRef.draw();
 			});

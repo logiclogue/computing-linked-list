@@ -18,9 +18,15 @@ var List = function (value)
 	static_.lists = [];
 
 
+	static_.removeValue = function (index) {
+		static_.lists[index] = null;
+	};
+
 	static_.draw = function () {
 		Table.clear();
 		Table.objRef = static_;
+
+		El.show('col-pointer');
 
 		for (var i = 0, max = static_.lists.length; i < max; i += 1) {
 			if (static_.lists[i] !== null) {

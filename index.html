@@ -2,10 +2,14 @@
 <html>
 <head>
 	<title>Linked Lists</title>
+
+
+	<link rel="stylesheet" type="text/css" href="style.css"></link>
 </head>
 <body>
 	<a href="#/linked-list">Linked list</a>
-	<a href="#/queue">Queue</a>
+	<a href="#/shuffle-queue">Shuffle queue</a>
+	<a href="#/circular-queue">Circular queue</a>
 	<a href="#/stack">Stack</a>
 
 	<table id="table-list">
@@ -13,7 +17,7 @@
 			<tr>
 				<th>Index</th>
 				<th>Value</th>
-				<th>Pointer</th>
+				<th id="col-pointer" class="hide">Pointer</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -23,11 +27,27 @@
 
 	<input id="input-add"><button id="button-add">Add</button>
 
+	<dl id="dl-stack" class="hide">
+		<dt>Stack Pointer</dt>
+		<dd id="dd-stack-pointer">0</dd>
+	</dl>
+
+	<dl id="dl-queue-circular" class="hide">
+		<dt>Front Pointer</dt>
+		<dd id="dd-front-pointer">0</dd>
+	</dl>
+	<dl id="dl-queue" class="hide">
+		<dt>Rear Pointer</dt>
+		<dd id="dd-rear-pointer">0</dd>
+	</dl>
+
 
 	<script src="js/Route.js"></script>
+	<script src="js/El.js"></script>
 	<script src="js/Table.js"></script>
 	<script src="js/List.js"></script>
-	<script src="js/Queue.js"></script>
+	<script src="js/ShuffleQueue.js"></script>
+	<script src="js/CircularQueue.js"></script>
 	<script src="js/Stack.js"></script>
 	<script src="js/Main.js"></script>
 </body>
