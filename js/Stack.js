@@ -22,6 +22,8 @@ var Stack = function (value)
 		Table.objRef = static_;
 
 		El.show('dl-stack');
+		El.show('section-pointers');
+		El.addClass('a-stack', 'selected');
 
 		for (var i = 0, max = static_.lists.length; i < max; i += 1) {
 			static_.stackPointer = null;

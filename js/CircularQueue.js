@@ -26,6 +26,8 @@ var CircularQueue = function (value)
 
 		El.show('dl-queue');
 		El.show('dl-queue-circular');
+		El.show('section-pointers');
+		El.addClass('a-circular-queue', 'selected');
 
 		for (i = 0, max = static_.lists.length; i < max; i += 1) {
 			if (static_.lists[i] !== null) {

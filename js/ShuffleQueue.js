@@ -24,6 +24,8 @@ var ShuffleQueue = function (value)
 		Table.objRef = static_;
 
 		El.show('dl-queue');
+		El.show('section-pointers');
+		El.addClass('a-shuffle-queue', 'selected');
 
 		for (var i = 0, max = static_.lists.length; i < max; i += 1) {
 			if (static_.lists[i] !== null) {

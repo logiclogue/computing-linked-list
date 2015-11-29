@@ -21,6 +21,10 @@ var Route = new (function ()
 
 	function eventHashChange() {
 		El.hideAll();
+		El.removeClass('a-linked-list', 'selected');
+		El.removeClass('a-shuffle-queue', 'selected');
+		El.removeClass('a-circular-queue', 'selected');
+		El.removeClass('a-stack', 'selected');
 
 		try {
 			currentLocation = window.location.hash.split('/');

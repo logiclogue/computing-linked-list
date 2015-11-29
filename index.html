@@ -7,39 +7,45 @@
 	<link rel="stylesheet" type="text/css" href="style.css"></link>
 </head>
 <body>
-	<a href="#/linked-list">Linked list</a>
-	<a href="#/shuffle-queue">Shuffle queue</a>
-	<a href="#/circular-queue">Circular queue</a>
-	<a href="#/stack">Stack</a>
+	<ul class="nav">
+		<li><a id="a-linked-list" href="#/linked-list">Linked list</a></li>
+		<li><a id="a-shuffle-queue" href="#/shuffle-queue">Shuffle queue</a></li>
+		<li><a id="a-circular-queue" href="#/circular-queue">Circular queue</a></li>
+		<li><a id="a-stack" href="#/stack">Stack</a></li>
+	</ul>
 
-	<table id="table-list">
-		<thead>
-			<tr>
-				<th>Index</th>
-				<th>Value</th>
-				<th id="col-pointer" class="hide">Pointer</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody id="table-list-body">
-		</tbody>
-	</table>
+	<section class="main">
+		<table id="table-list">
+			<thead>
+				<tr>
+					<th>Index</th>
+					<th>Value</th>
+					<th id="col-pointer" class="hide">Pointer</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="table-list-body">
+			</tbody>
+		</table>
 
-	<input id="input-add"><button id="button-add">Add</button>
+		<input id="input-add"><button id="button-add">Add</button>
+	</section>
 
-	<dl id="dl-stack" class="hide">
-		<dt>Stack Pointer</dt>
-		<dd id="dd-stack-pointer">0</dd>
-	</dl>
+	<section id="section-pointers" class="pointers">
+		<dl id="dl-stack" class="hide">
+			<dt>Stack Pointer</dt>
+			<dd id="dd-stack-pointer">0</dd>
+		</dl>
 
-	<dl id="dl-queue-circular" class="hide">
-		<dt>Front Pointer</dt>
-		<dd id="dd-front-pointer">0</dd>
-	</dl>
-	<dl id="dl-queue" class="hide">
-		<dt>Rear Pointer</dt>
-		<dd id="dd-rear-pointer">0</dd>
-	</dl>
+		<dl id="dl-queue-circular" class="hide">
+			<dt>Front Pointer</dt>
+			<dd id="dd-front-pointer">0</dd>
+		</dl>
+		<dl id="dl-queue" class="hide">
+			<dt>Rear Pointer</dt>
+			<dd id="dd-rear-pointer">0</dd>
+		</dl>
+	</section>
 
 
 	<script src="js/Route.js"></script>

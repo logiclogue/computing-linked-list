@@ -27,6 +27,7 @@ var List = function (value)
 		Table.objRef = static_;
 
 		El.show('col-pointer');
+		El.addClass('a-linked-list', 'selected');
 
 		for (var i = 0, max = static_.lists.length; i < max; i += 1) {
 			if (static_.lists[i] !== null) {
