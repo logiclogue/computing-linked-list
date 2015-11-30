@@ -1,9 +1,16 @@
 var ShuffleQueue = function (value)
 {
-	this.value = value;
-	this.pointer = null;
+	var static_ = ShuffleQueue;
 
-	ShuffleQueue.lists.push(this);
+	if (static_.lists.length >= Main.listLength) {
+		alert('Queue full');
+	}
+	else {
+		this.value = value;
+		this.pointer = null;
+
+		static_.lists.push(this);
+	}
 };
 
 

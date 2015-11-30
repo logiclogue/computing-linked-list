@@ -3,7 +3,7 @@ var El = new (function ()
 	var self = this;
 
 	self.elements = [];
-	self.onePageEl = ['dl-stack', 'col-pointer', 'dl-queue', 'dl-queue-circular', 'section-pointers'];
+	self.onePageEl = ['dl-stack', 'col-pointer', 'dl-queue', 'dl-queue-circular', 'section-pointers', 'a-full'];
 
 
 	self.get = function (elName) {

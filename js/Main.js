@@ -8,6 +8,8 @@ var Main = new (function ()
 		linuxDistos: ['Ubuntu', 'Linux Mint', 'Debian', 'Fedora', 'CentOS', 'openSUSE', 'Mandriva', 'Arch Linux', 'Slackware', 'Puppy Linux']
 	};
 
+	self.listLength = 10;
+
 
 	El.get('button-add').addEventListener('click', function () {
 		new Table.objRef(El.get('input-add').value);

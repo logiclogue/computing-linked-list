@@ -73,6 +73,11 @@ th {
 }
 
 
+#a-full {
+	color: red;
+}
+
+
 .hide {
 	display: none;
 }

@@ -1,15 +1,23 @@
 var List = function (value)
 {
-	this.value = value;
-	this.pointer = null;
+	var static_ = List;
 
-	var index = List.lists.length;
 
-	if (index > 0) {
-		this.pointer = 1;
+	if (static_.count() >= Main.listLength) {
+		alert('List full');
 	}
+	else {
+		this.value = value;
+		this.pointer = null;
 
-	List.lists.push(this);
+		var index = List.lists.length;
+
+		if (index > 0) {
+			this.pointer = 1;
+		}
+
+		static_.lists.push(this);
+	}
 };
 
 
@@ -17,6 +25,18 @@ var List = function (value)
 
 	static_.lists = [];
 
+
+	static_.count = function () {
+		var total = 0;
+
+		static_.lists.forEach(function (obj) {
+			if (obj !== null) {
+				total += 1;
+			}
+		});
+
+		return total;
+	};
 
 	static_.removeValue = function (index) {
 		static_.lists[index] = null;
