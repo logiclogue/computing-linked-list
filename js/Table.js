@@ -1,23 +1,22 @@
-var Table = {};
+var Table = new (function ()
+{
+	var self = this;
+
+	self.table = El.get('table-list');
+	self.tableBody = El.get('table-list-body');
+	self.rows = [];
+	self.objRef;
 
 
-(function (static_, public_) {
-
-	static_.table = El.get('table-list');
-	static_.tableBody = El.get('table-list-body');
-	static_.rows = [];
-	static_.objRef;
-
-
-	static_.clear = function () {
-		for (var i = 0, max = static_.tableBody.childNodes.length; i < max; i += 1) {
-			static_.tableBody.removeChild(static_.tableBody.childNodes[0]);
+	self.clear = function () {
+		for (var i = 0, max = self.tableBody.childNodes.length; i < max; i += 1) {
+			self.tableBody.removeChild(self.tableBody.childNodes[0]);
 		}
 	};
 
-	static_.getNextVal = function (index) {
+	self.getNextVal = function (index) {
 		if (this.lists[index + 1] === null) {
-			return static_.getNextVal.call(this, index + 1);
+			return self.getNextVal.call(this, index + 1);
 		}
 		else if (this.lists.length - 1 === index) {
 			return null;
@@ -26,35 +25,42 @@ var Table = {};
 		return index + 1;
 	};
 
-	static_.removeValue = function (obj) {
-		static_.tableBody.removeChild(static_.rows[obj.index]);
-		static_.objRef.removeValue(obj.index);
+	self.removeValue = function (obj) {
+		self.tableBody.removeChild(self.rows[obj.index]);
+		self.objRef.removeValue(obj.index);
 	};
 
-	static_.insertValue = function (obj, isButton) {
-		static_.rows[obj.index] = document.createElement('tr');
+	self.insertValue = function (obj, isButton) {
+		self.rows[obj.index] = document.createElement('tr');
 
-		var row = static_.rows[obj.index];
+		var row = self.rows[obj.index];
 		var removeButton = document.createElement('button');
+		var cell0 = row.insertCell(0);
+		var cell1 = row.insertCell(1);
+		var cell2 = row.insertCell(2);
+		var cell3 = row.insertCell(3);
 
 		removeButton.appendChild(document.createTextNode('Remove'));
 
-		row.insertCell(0).innerHTML = obj.index;
-		row.insertCell(1).innerHTML = obj.value;
-		row.insertCell(2).innerHTML = obj.pointer;
+		cell0.innerHTML = obj.index;
+		cell1.innerHTML = obj.value;
+		cell2.innerHTML = obj.pointer;
 
-		if (isButton) {
-			row.insertCell(3).appendChild(removeButton);
+		if (self.objRef !== List) {
+			cell2.className = 'hide';
 		}
 
-		static_.tableBody.appendChild(row);
+		if (isButton) {
+			cell3.appendChild(removeButton);
+		}
+
+		self.tableBody.appendChild(row);
 
 		if (isButton) {
 			removeButton.addEventListener('click', function () {
-				static_.removeValue(obj);
-				static_.objRef.draw();
+				self.removeValue(obj);
+				self.objRef.draw();
 			});
 		}
 	};
-
-}(Table, Table.prototype));
+});

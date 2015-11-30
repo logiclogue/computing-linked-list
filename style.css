@@ -58,10 +58,12 @@ section {
 table {
 	border-collapse: collapse;
 	border-radius: 1em;
+	margin-bottom: 1em;
 }
 
 table, th, td {
 	border: 2px solid #E6E6E6;
+	padding: 0.5em;
 }
 
 th {
@@ -72,6 +74,10 @@ th {
 
 
 .hide {
+	display: none;
+}
+
+.hideColumn:nth-of-type(3) {
 	display: none;
 }
 
