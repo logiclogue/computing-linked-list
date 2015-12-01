@@ -1,9 +1,16 @@
 var Stack = function (value)
 {
-	this.value = value;
-	this.pointer = null;
+	var static_ = Stack;
 
-	Stack.lists.push(this);
+	if (static_.lists.length >= Main.listLength) {
+		alert('Stack full');
+	}
+	else {
+		this.value = value;
+		this.pointer = null;
+
+		static_.lists.push(this);
+	}
 };
 
 

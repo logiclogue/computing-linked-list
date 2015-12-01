@@ -1,9 +1,17 @@
 var CircularQueue = function (value)
 {
-	this.value = value;
-	this.pointer = null;
+	var static_ = CircularQueue;
 
-	CircularQueue.lists.push(this);
+	if (List.count.call(static_) >= Main.listLength) {
+		alert('Queue full');
+	}
+	else {
+		this.value = value;
+		this.pointer = null;
+
+		static_.lists[static_.nextIndex(static_.rearPointer)] = this;
+		static_.rearPointer = static_.nextIndex(static_.rearPointer + 1);
+	}
 };
 
 
@@ -14,8 +22,20 @@ var CircularQueue = function (value)
 	static_.rearPointer = 0;
 	
 
+	static_.nextIndex = function (index) {
+		if (index === -1 && static_.lists.length === 0) {
+			return 0;
+		}
+		if (index === -1) {
+			return Main.listLength - 1;
+		}
+
+		return index % Main.listLength;
+	};
+
 	static_.removeValue = function (index) {
 		static_.lists[index] = null;
+		static_.frontPointer = static_.nextIndex(static_.frontPointer + 1);
 	};
 
 	static_.draw = function () {
@@ -31,22 +51,15 @@ var CircularQueue = function (value)
 
 		for (i = 0, max = static_.lists.length; i < max; i += 1) {
 			if (static_.lists[i] !== null) {
-				if (isFirst) {
-					static_.frontPointer = i;
-				}
-
 				Table.insertValue({
 					index: i,
 					value: static_.lists[i].value,
 					pointer: null
-				}, isFirst);
-
-				isFirst = false;
-				static_.rearPointer = i;
+				}, static_.frontPointer === i);
 			}
 		}
 
-		El.get('dd-rear-pointer').innerHTML = static_.rearPointer;
+		El.get('dd-rear-pointer').innerHTML = static_.nextIndex(static_.rearPointer - 1);
 		El.get('dd-front-pointer').innerHTML = static_.frontPointer;
 	};
 

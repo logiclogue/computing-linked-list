@@ -3,7 +3,7 @@ var List = function (value)
 	var static_ = List;
 
 
-	if (static_.count() >= Main.listLength) {
+	if (static_.count.call(static_) >= Main.listLength) {
 		alert('List full');
 	}
 	else {
@@ -29,7 +29,7 @@ var List = function (value)
 	static_.count = function () {
 		var total = 0;
 
-		static_.lists.forEach(function (obj) {
+		this.lists.forEach(function (obj) {
 			if (obj !== null) {
 				total += 1;
 			}
