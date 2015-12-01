@@ -5,7 +5,9 @@ var Main = new (function ()
 
 	var dummyData = {
 		cities: ['London', 'Birmingham', 'Leeds', 'Sheffield', 'Manchester', 'Bristol', 'Newcastle', 'Derby', 'Sunderland', 'Stoke'],
-		linuxDistos: ['Ubuntu', 'Linux Mint', 'Debian', 'Fedora', 'CentOS', 'openSUSE', 'Mandriva', 'Arch Linux', 'Slackware', 'Puppy Linux']
+		linuxDistos: ['Ubuntu', 'Linux Mint', 'Debian', 'Fedora', 'CentOS', 'openSUSE', 'Mandriva', 'Arch Linux', 'Slackware', 'Puppy Linux'],
+		britishIsles: ['England', 'Scotland', 'Wales', 'Northern Ireland', 'Republic of Ireland', 'Isle of Man', 'Jersey', 'Guernsey', 'Shetland Islands', 'Isle of Wight'],
+		fruits: ['Apple', 'Orange', 'Pear', 'Peach', 'Red Grapefruit', 'Grapefruit', 'Date', 'Apricot', 'Passionfruit', 'Black Cherry']
 	};
 
 	self.listLength = 10;
@@ -27,6 +29,14 @@ var Main = new (function ()
 
 		dummyData.linuxDistos.forEach(function (val) {
 			new ShuffleQueue(val);
+		});
+
+		dummyData.britishIsles.forEach(function (val) {
+			new CircularQueue(val);
+		});
+
+		dummyData.fruits.forEach(function (val) {
+			new Stack(val);
 		});
 
 		Route.init();
